@@ -1,0 +1,43 @@
+<div class="grid sm:grid-cols-12 py-10 w-[90%] mx-auto ">
+
+    <div class="col-span-4">
+        <div class="">
+            <!-- <img [src]="productDetails?.imageCover" alt=""> -->
+
+            <owl-carousel-o [options]="customOptions">
+
+                @for (slide of productDetails?.images; track $index) {
+                <ng-template carouselSlide>
+                    <img [src]="slide">
+                    <!-- <p class="text-center">{{slide?.name}}</p> -->
+                </ng-template>
+                }
+
+            </owl-carousel-o>
+        </div>
+    </div>
+    <div class="col-span-8 flex flex-col justify-between h-full px-9">
+        <div class="">
+            <h1 class="font-bold text-3xl">{{productDetails?.title}}</h1>
+            <p class="text-gray-700">{{productDetails?.description}}</p>
+        </div>
+        <div class="">
+            <h1 class="text-green-700">{{productDetails?.category?.name}}</h1>
+            <div class="flex by-3 justify-between items-center">
+                <div class="">
+                    <span>{{productDetails?.price}}</span>
+                </div>
+                <div class="">
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <span>{{productDetails?.ratingsQuantity}}</span>
+                </div>
+            </div>
+
+        </div>
+        <button (click)="addToCart(productDetails?._id)"
+            class="btn group-hover/card:translate-y-0 transation-all duration-200  translate-y-[130%] ">Add To
+            Cart</button>
+
+
+    </div>
+</div>

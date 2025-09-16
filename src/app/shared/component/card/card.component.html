@@ -1,0 +1,26 @@
+<div
+    class="overflow-hidden group/card m-2 bg-white border border-gray-300 hover:border-green-700 cursor-pointer rounded-md p-3">
+    <div class="">
+        <div class="" [routerLink]="['/productDetails', productData?._id]">
+
+            <img [src]="productData?.imageCover" class="w-full h-[200px]" alt="">
+            <h3 class="text-green-700"> {{productData?.category?.name}}</h3>
+            <h4> {{productData?.title | onSale}}</h4>
+        </div>
+        <div class="flex py-3 justify-between items-center">
+            <div class="">
+                <span>{{productData?.price |currency :'USD'}}</span>
+            </div>
+
+            <div class="">
+                <i class="fas fa-star text-yellow-400"></i>
+                <span>{{productData?.ratingsQuantity}}</span>
+            </div>
+
+        </div>
+    </div>
+    <button (click)="addToCart(productData?._id)"
+        class="btn group-hover/card:translate-y-0 transation-all duration-200  translate-y-[130%] cursor-pointer">Add To
+        Cart</button>
+
+</div>
