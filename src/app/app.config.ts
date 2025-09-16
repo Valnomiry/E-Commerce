@@ -10,17 +10,29 @@ import {
   provideClientHydration,
   withEventReplay,
 } from '@angular/platform-browser';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import {
+  provideHttpClient,
+  withFetch,
+  withInterceptors,
+} from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { CookieService } from 'ngx-cookie-service';
 import { provideToastr } from 'ngx-toastr';
+import { setHeaderInterceptor } from './core/interceptors/set-header.interceptor';
+import { globErrMsgInterceptor } from './core/interceptors/glob-err-msg.interceptor';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { globLoadingInterceptor } from './core/interceptors/glob-loading.interceptor';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
-    provideHttpClient(withFetch()),
+    provideHttpClient(
+      withFetch(),
+      withInterceptors([setHeaderInterceptor, globLoadingInterceptor])
+    ),
     provideAnimations(),
+    NgxSpinnerModule,
     provideToastr(),
     importProvidersFrom([CookieService]),
   ],

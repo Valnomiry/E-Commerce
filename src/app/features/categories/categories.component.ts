@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { CategoryService } from '../../core/service/category/category-service';
 import { MainSliderComponent } from '../main-slider/main-slider.component';
-import { CategorySliderComponent } from "../category-slider/category-slider.component";
+import { CategorySliderComponent } from '../category-slider/category-slider.component';
 
 @Component({
   selector: 'app-categories',

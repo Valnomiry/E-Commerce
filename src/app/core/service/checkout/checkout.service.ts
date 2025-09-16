@@ -16,16 +16,13 @@ export class CheckoutService {
   ): Observable<any> {
     return this.http.post(
       `${environment.baseUrl}orders/checkout-session/${cartId}?url=http://localhost:4200`,
-      { shippingAddress: shoppingAddress },
-      { headers: { token: this.cookies.get('token') } }
+      { shippingAddress: shoppingAddress }
     );
   }
 
   payCash(shoppingAddress: any, cartId: string): Observable<any> {
-    return this.http.post(
-      `${environment.baseUrl}orders/${cartId}`,
-      { shippingAddress: shoppingAddress },
-      { headers: { token: this.cookies.get('token') } }
-    );
+    return this.http.post(`${environment.baseUrl}orders/${cartId}`, {
+      shippingAddress: shoppingAddress,
+    });
   }
 }

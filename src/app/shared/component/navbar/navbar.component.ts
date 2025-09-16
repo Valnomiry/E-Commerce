@@ -23,6 +23,7 @@ export class NavbarComponent {
   ngOnInit(): void {
     this.flowbiteService.loadFlowbite((flowbite) => {
       initFlowbite();
+
       this.cartService.productCount.subscribe({
         next: (res) => {
           this.cartProductCount = res;
