@@ -39,6 +39,16 @@
 
                 @if (isLoggedIn) {
                 <li>
+                    <a routerLink="/wishList" routerLinkActive="text-white bg-green-500"
+                        class="block px-2 py-3 text-gray-600 hover:text-green-700 transation-color duration-200 rounded-sm      dark:text-white"
+                        aria-current="page">
+                        Wish List
+                    </a>
+                </li>
+                }
+
+                @if (isLoggedIn) {
+                <li>
                     <a routerLink="/cart" routerLinkActive="text-white bg-green-500"
                         class="block px-2 py-3 text-gray-600 hover:text-green-700 transation-color duration-200 rounded-sm      dark:text-white"
                         aria-current="page">

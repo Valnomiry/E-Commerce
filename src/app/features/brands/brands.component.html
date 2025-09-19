@@ -1,1 +1,42 @@
-<p>brands works!</p>
+<div class="container w-[90%] mx-auto">
+    <div class="text-center m-9 ">
+        <h2 class="text-4xl font-bold text-green-600">All Brands</h2>
+    </div>
+    <div class="grid md:grid-cols-12">
+        @for (brandData of dataList() ; track $index) {
+        <div class="md:col-span-3 ">
+            <!-- <app-card [productData]="product" /> -->
+
+            <div
+                class="overflow-hidden group/card m-2 bg-white border border-gray-300 hover:border-green-700 cursor-pointer rounded-md p-3">
+                <div class="">
+                    <!-- <div class="" [routerLink]="['/productDetails', productData?._id]"> -->
+
+                    <img [src]="brandData?.image" class="w-full h-[200px]" alt="">
+                    <h3 class="text-green-700 text-center"> {{brandData?.name}}</h3>
+                    <!-- <h4> {{brandData?.title | onSale}}</h4> -->
+                </div>
+                <!-- <div class="flex py-3 justify-between items-center">
+                        <div class="">
+                            <span>{{brandData?.price |currency :'USD'}}</span>
+                        </div>
+
+                        <div class="">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <span>{{brandData?.ratingsQuantity}}</span>
+                        </div>
+
+                    </div> -->
+            </div>
+
+
+        </div>
+
+
+
+
+        }
+
+    </div>
+
+</div>

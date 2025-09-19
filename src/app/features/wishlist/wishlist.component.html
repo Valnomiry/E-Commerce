@@ -1,0 +1,30 @@
+<div class="container w-[90%] mx-auto my-16 bg-gray-100 py-5">
+    <div class=" m-9 ">
+        <h2 class="text-2xl font-bold text-green-600">My Wish List</h2>
+    </div>
+    <div class="flex items-center  px-8   grid grid-cols-12 gap-4">
+        @for (productData of dataList; track $index) {
+        <div class="md:col-span-8">
+            <div class="flex items-center ">
+                <div class="">
+                    <img [src]="productData?.imageCover" class="w-[200px] h-[250px]" alt="">
+                </div>
+                <div class="mx-4 flex flex-col gap-1">
+                    <h3 class="text-xl">{{productData?.title}}</h3>
+                    <h4 class="text-green-700">{{productData?.price |currency :'USD'}}</h4>
+                    <i class="fas fa-trash text-red-600" (click)="removeFromWishList(productData?._id)"><span
+                            class="ml-2 text-[10px] text-normal cursor-pointer">Remove</span></i>
+                </div>
+            </div>
+        </div>
+        <div class="md:col-span-4 ">
+            <button (click)=" addToCart(productData?._id)" class="btn  transation-all duration-200  cursor-pointer">Add
+                To
+                Cart</button>
+        </div>
+
+        }
+
+
+    </div>
+</div>

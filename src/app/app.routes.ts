@@ -14,6 +14,7 @@ import { lodedInGuard } from './core/guard/loded-in.guard';
 import { ForgetPasswordComponent } from './features/forget-password/forget-password.component';
 import { CheckoutComponent } from './features/checkout/checkout.component';
 import { AllOrderComponent } from './features/all-order/all-order.component';
+import { WishlistComponent } from './features/wishlist/wishlist.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -30,6 +31,7 @@ export const routes: Routes = [
   { path: 'categories', component: CategoriesComponent },
   { path: 'brands', component: BrandsComponent },
   { path: 'cart', component: CartComponent, canActivate: [authGuard] },
+  { path: 'wishList', component: WishlistComponent, canActivate: [authGuard] },
   { path: 'allorders', component: AllOrderComponent, canActivate: [authGuard] },
   {
     path: 'checkout/:id',

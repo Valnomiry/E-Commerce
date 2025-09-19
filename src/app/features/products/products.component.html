@@ -7,7 +7,8 @@
     <div class="grid md:grid-cols-12">
         @for (product of dataList() | search:searchText; track $index) {
         <div class="md:col-span-3 ">
-            <app-card [productData]="product" />
+            <app-card [productData]="product" [isFavorite]="isInWishlist(product._id)"
+                (toggleFavorite)="handleToggleFavorite($event)" />
         </div>
 
         }
