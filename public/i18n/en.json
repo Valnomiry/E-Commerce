@@ -1,0 +1,18 @@
+{
+    "navbar": {
+        "Home": "Home",
+        "Products": "Products",
+        "Brands": "Brands",
+        "Login": "Login",
+        "Signup": "Signup",
+        "Logout": "Logout",
+        "Categories": "Categories",
+        "Cart": "Cart",
+        "About Us": "About Us",
+        "WishList": "WishList",
+        "All Order": "All Order",
+        "Register": "Register",
+        "ShopPopular": "Shop Papular Products",
+        "WishItems": "My Wish Items"
+    }
+}

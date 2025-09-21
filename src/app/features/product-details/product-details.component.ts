@@ -15,6 +15,7 @@ export class ProductDetailsComponent implements OnInit {
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
+    rtl: true,
     touchDrag: false,
     pullDrag: false,
     dots: false,
@@ -51,7 +52,7 @@ export class ProductDetailsComponent implements OnInit {
   getData() {
     this.productService.getProductDetails(this.id).subscribe({
       next: (res: any) => {
-        // console.log('res', res);
+        console.log('res', res);
         this.productDetails = res.data;
       },
     });

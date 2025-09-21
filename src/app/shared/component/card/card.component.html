@@ -21,10 +21,13 @@
         </div>
 
     </div>
+    @if (isLoggedIn) {
+
     <div class="flex justify-end cursor-pointer"
         [ngClass]="{ 'text-red-600': isFavorite, 'text-black-600': !isFavorite }" (click)="onToggleFavorite()"><i
             class="fas fa-heart  text-2xl"></i>
     </div>
+    }
     <button (click)=" addToCart(productData?._id)"
         class="btn group-hover/card:translate-y-0 transation-all duration-200  translate-y-[130%] cursor-pointer">Add To
         Cart</button>

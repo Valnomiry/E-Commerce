@@ -19,34 +19,45 @@
                 <li>
                     <a routerLink="/home" routerLinkActive="text-white bg-green-500"
                         class="block px-2 py-3 text-gray-600 hover:text-green-700 transation-color duration-200 rounded-sm      dark:text-white"
-                        aria-current="page">Home</a>
+                        aria-current="page">{{ 'navbar.Home' | translate}} </a>
                 </li>
                 <li>
                     <a routerLink="/product" routerLinkActive="text-white bg-green-500"
                         class="block px-2 py-3 text-gray-600 hover:text-green-700    duration-200 rounded-sm     dark:text-white"
-                        aria-current="page">Products</a>
+                        aria-current="page">{{ 'navbar.Products' | translate}} </a>
                 </li>
                 <li>
                     <a routerLink="/brands" routerLinkActive="text-white bg-green-500"
                         class="block px-2 py-3 text-gray-600 hover:text-green-700 transation-color duration-200 rounded-sm      dark:text-white"
-                        aria-current="page">Brands</a>
+                        aria-current="page">{{ 'navbar.Brands' | translate}} </a>
                 </li>
                 <li>
                     <a routerLink="/categories" routerLinkActive="text-white bg-green-500"
                         class="block px-2 py-3 text-gray-600 hover:text-green-700 transation-color duration-200 rounded-sm      dark:text-white"
-                        aria-current="page">Categories</a>
+                        aria-current="page">{{ 'navbar.Categories' | translate}} </a>
                 </li>
+
 
                 @if (isLoggedIn) {
                 <li>
                     <a routerLink="/wishList" routerLinkActive="text-white bg-green-500"
                         class="block px-2 py-3 text-gray-600 hover:text-green-700 transation-color duration-200 rounded-sm      dark:text-white"
                         aria-current="page">
-                        Wish List
+                        {{ 'navbar.WishList' | translate}}
                     </a>
                 </li>
                 }
 
+                <li>
+                    <a routerLinkActive="text-white bg-green-500"
+                        class="block px-2 py-3 text-gray-600 hover:text-green-700 transation-color duration-200 rounded-sm   cursor-pointer   dark:text-white"
+                        aria-current="page" (click)="transalte.changeLange('ar')"> Ar</a>
+                </li>
+                <li>
+                    <a routerLinkActive="text-white bg-green-500"
+                        class="block px-2 py-3 text-gray-600 hover:text-green-700 transation-color duration-200 rounded-sm cursor-pointer     dark:text-white"
+                        aria-current="page" (click)="transalte.changeLange('en')"> En</a>
+                </li>
                 @if (isLoggedIn) {
                 <li>
                     <a routerLink="/cart" routerLinkActive="text-white bg-green-500"
@@ -87,12 +98,12 @@
                 <li>
                     <a routerLink="/login" routerLinkActive="text-white bg-green-500"
                         class="block  text-gray-600 hover:text-green-700 transation-color duration-200 rounded-sm    md:p-0  dark:text-white"
-                        aria-current="page">Login</a>
+                        aria-current="page">{{ 'navbar.Login' | translate}} </a>
                 </li>
                 <li>
                     <a routerLink="/signup" routerLinkActive="text-white bg-green-500"
                         class="block  text-gray-600 hover:text-green-700 transation-color duration-200 rounded-sm    md:p-0  dark:text-white"
-                        aria-current="page">Register</a>
+                        aria-current="page">{{ 'navbar.Signup' | translate}} </a>
                 </li>
                 }
 
@@ -100,7 +111,7 @@
                 <li>
                     <a (click)="signOut()" routerLink="/logout" routerLinkActive="text-white bg-green-500"
                         class="block  text-gray-600 hover:text-green-700 transation-color duration-200 rounded-sm    md:p-0  dark:text-white"
-                        aria-current="page">Logout</a>
+                        aria-current="page">{{ 'navbar.Logout' | translate}}</a>
                 </li>
                 }
 

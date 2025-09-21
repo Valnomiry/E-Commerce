@@ -4,10 +4,12 @@ import { FlowbiteService } from '../../../core/service/flowbite-service';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { LoginService } from '../../../core/service/auth/login.service';
 import { CartService } from '../../../core/service/cart/cart.service';
+import { TranslateModule } from '@ngx-translate/core';
+import { Transalte } from '../../../core/service/translate/transalte.service';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, TranslateModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
@@ -17,7 +19,8 @@ export class NavbarComponent {
   constructor(
     private flowbiteService: FlowbiteService,
     private loginService: LoginService,
-    private cartService: CartService
+    private cartService: CartService,
+    public transalte: Transalte
   ) {}
 
   ngOnInit(): void {

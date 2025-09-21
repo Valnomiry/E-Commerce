@@ -10,6 +10,7 @@ import {
   inject,
   Input,
   input,
+  OnInit,
   Output,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
@@ -17,6 +18,7 @@ import { OnSalePipe } from '../../pipe/on-sale.pipe';
 import { CartService } from '../../../core/service/cart/cart.service';
 import { ToastrService } from 'ngx-toastr';
 import { WishListService } from '../../../core/service/wishList/wish-list.service';
+import { LoginService } from '../../../core/service/auth/login.service';
 
 @Component({
   selector: 'app-card',
@@ -31,7 +33,15 @@ import { WishListService } from '../../../core/service/wishList/wish-list.servic
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
 })
-export class CardComponent {
+export class CardComponent implements OnInit {
+  isLoggedIn: boolean = false;
+  constructor(private loginService: LoginService) {}
+  ngOnInit(): void {
+    this.loginService.userData.subscribe((data) => {
+      this.isLoggedIn = data ? true : false;
+      // console.log('isLoggedIn', this.isLoggedIn);
+    });
+  }
   @Input() productData: any;
   private cartService = inject(CartService);
   private wishListService = inject(WishListService);

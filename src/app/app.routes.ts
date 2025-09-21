@@ -18,25 +18,96 @@ import { WishlistComponent } from './features/wishlist/wishlist.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent, canActivate: [lodedInGuard] },
-  { path: 'signup', component: SignupComponent, canActivate: [lodedInGuard] },
   {
-    path: 'resetPassword',
-    component: ForgetPasswordComponent,
+    path: 'home',
+    loadComponent: () =>
+      import('./features/home/home.component').then((m) => m.HomeComponent),
+  },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./features/login/login.component').then((m) => m.LoginComponent),
     canActivate: [lodedInGuard],
   },
-  { path: 'product', component: ProductsComponent },
-  { path: 'productDetails/:id', component: ProductDetailsComponent },
-  { path: 'categories', component: CategoriesComponent },
-  { path: 'brands', component: BrandsComponent },
-  { path: 'cart', component: CartComponent, canActivate: [authGuard] },
-  { path: 'wishList', component: WishlistComponent, canActivate: [authGuard] },
-  { path: 'allorders', component: AllOrderComponent, canActivate: [authGuard] },
   {
-    path: 'checkout/:id',
-    component: CheckoutComponent,
+    path: 'signup',
+    loadComponent: () =>
+      import('./features/signup/signup.component').then(
+        (m) => m.SignupComponent
+      ),
+    canActivate: [lodedInGuard],
+  },
+  {
+    path: 'resetPassword',
+    loadComponent: () =>
+      import('./features/forget-password/forget-password.component').then(
+        (m) => m.ForgetPasswordComponent
+      ),
+    canActivate: [lodedInGuard],
+  },
+  {
+    path: 'product',
+    loadComponent: () =>
+      import('./features/products/products.component').then(
+        (m) => m.ProductsComponent
+      ),
+  },
+  {
+    path: 'productDetails/:id',
+    loadComponent: () =>
+      import('./features/product-details/product-details.component').then(
+        (m) => m.ProductDetailsComponent
+      ),
+  },
+  {
+    path: 'categories',
+    loadComponent: () =>
+      import('./features/categories/categories.component').then(
+        (m) => m.CategoriesComponent
+      ),
+  },
+  {
+    path: 'brands',
+    loadComponent: () =>
+      import('./features/brands/brands.component').then(
+        (m) => m.BrandsComponent
+      ),
+  },
+  {
+    path: 'cart',
+    loadComponent: () =>
+      import('./features/cart/cart.component').then((m) => m.CartComponent),
     canActivate: [authGuard],
   },
-  { path: '**', component: NotFoundComponent },
+  {
+    path: 'wishList',
+    loadComponent: () =>
+      import('./features/wishlist/wishlist.component').then(
+        (m) => m.WishlistComponent
+      ),
+    canActivate: [authGuard],
+  },
+  {
+    path: 'allorders',
+    loadComponent: () =>
+      import('./features/all-order/all-order.component').then(
+        (m) => m.AllOrderComponent
+      ),
+    canActivate: [authGuard],
+  },
+  {
+    path: 'checkout/:id',
+    loadComponent: () =>
+      import('./features/checkout/checkout.component').then(
+        (m) => m.CheckoutComponent
+      ),
+    canActivate: [authGuard],
+  },
+  {
+    path: '**',
+    loadComponent: () =>
+      import('./features/not-found/not-found.component').then(
+        (m) => m.NotFoundComponent
+      ),
+  },
 ];

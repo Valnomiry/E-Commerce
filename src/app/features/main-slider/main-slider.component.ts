@@ -10,6 +10,7 @@ export class MainSliderComponent {
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
+    rtl: true,
     touchDrag: false,
     pullDrag: false,
     dots: false,

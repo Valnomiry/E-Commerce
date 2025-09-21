@@ -3,14 +3,17 @@ import { ToastrService } from 'ngx-toastr';
 import { WishListService } from '../../core/service/wishList/wish-list.service';
 import { CartService } from '../../core/service/cart/cart.service';
 import { CurrencyPipe } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
+import { Transalte } from '../../core/service/translate/transalte.service';
 
 @Component({
   selector: 'app-wishlist',
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe,TranslateModule],
   templateUrl: './wishlist.component.html',
   styleUrl: './wishlist.component.scss',
 })
 export class WishlistComponent implements OnInit {
+  constructor(public transalte: Transalte) {}
   ngOnInit(): void {
     this.getWishList();
   }
