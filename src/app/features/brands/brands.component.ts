@@ -25,7 +25,7 @@ export class BrandsComponent implements OnInit {
   getBrands() {
     this.brandService.getAllBrands().subscribe({
       next: (res: any) => {
-        console.log('res', res);
+        // console.log('res', res);
         this.dataList.set(res.data);
       },
       error: (err: any) => {

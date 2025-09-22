@@ -35,7 +35,7 @@ export class ProductsComponent implements OnInit {
   getData() {
     this._productsService.getAllProducts().subscribe({
       next: (res: any) => {
-        console.log('res.data', res.data);
+        // console.log('res.data', res.data);
         this.dataList.set(res.data);
       },
       error: (err: any) => {
@@ -48,13 +48,13 @@ export class ProductsComponent implements OnInit {
     this.wishListService.getWishList().subscribe((wishlist) => {
       // console.log('wishlist', wishlist);
       this.wishlistIds = wishlist.data.map((item: any) => item._id); // extract IDs
-      console.log('wishlistIds', this.wishlistIds);
+      // console.log('wishlistIds', this.wishlistIds);
     });
   }
 
   isInWishlist(productId: string): boolean {
     return this.wishlistIds.includes(productId);
-    console.log('wishlistIds', this.wishlistIds);
+    // console.log('wishlistIds', this.wishlistIds);
   }
 
   handleToggleFavorite(productId: string) {
@@ -62,15 +62,15 @@ export class ProductsComponent implements OnInit {
       this.wishListService.removeProductToWishList(productId).subscribe(() => {
         this.getData();
         this.getWishList(); // refresh after remove
-        console.log('productId', productId);
-        console.log('isInWishlist', this.isInWishlist(productId));
+        // console.log('productId', productId);
+        // console.log('isInWishlist', this.isInWishlist(productId));
       });
     } else {
       this.wishListService.addProductToWishList(productId).subscribe(() => {
         this.getData();
         this.getWishList(); // refresh after add
-        console.log('productId', productId);
-        console.log('isInWishlist', this.isInWishlist(productId));
+        // console.log('productId', productId);
+        // console.log('isInWishlist', this.isInWishlist(productId));
       });
     }
     this.getData();

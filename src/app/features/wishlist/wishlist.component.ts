@@ -27,7 +27,7 @@ export class WishlistComponent implements OnInit {
       next: (res) => {
         // this.isFavorite = true;
         this.dataList = res.data;
-        console.log('res.data', res.data);
+        // console.log('res.data', res.data);
       },
       error: (err) => {
         // console.log(err);
@@ -51,7 +51,7 @@ export class WishlistComponent implements OnInit {
   }
 
   removeFromWishList(productId: string) {
-    console.log('productId', productId);
+    // console.log('productId', productId);
 
     this.wishListService.removeProductToWishList(productId).subscribe({
       next: (res) => {

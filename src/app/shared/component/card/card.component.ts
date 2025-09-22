@@ -51,7 +51,7 @@ export class CardComponent implements OnInit {
   @Output() toggleFavorite = new EventEmitter<string>();
   addToCart(productId: string) {
     // console.log('productId', productId);
-    console.log('fav', this.isFavorite);
+    // console.log('fav', this.isFavorite);
     this.cartService.addProductToCart(productId).subscribe({
       next: (res) => {
         // console.log(res);
@@ -66,7 +66,7 @@ export class CardComponent implements OnInit {
   }
 
   addRemoveFavorite(productId: string, isFavorite: boolean) {
-    console.log('productId', productId);
+    // console.log('productId', productId);
 
     if (!isFavorite) {
       this.wishListService.addProductToWishList(productId).subscribe({
@@ -101,7 +101,7 @@ export class CardComponent implements OnInit {
       next: (res) => {
         // this.isFavorite = true;
         this.dataList = res.data;
-        console.log('res.data', res.data);
+        // console.log('res.data', res.data);
       },
       error: (err) => {
         // console.log(err);

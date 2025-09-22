@@ -48,7 +48,7 @@ export class CheckoutComponent implements OnInit {
         .checkoutSession(this.checkoutForm.value, this.cartId)
         .subscribe({
           next: (res) => {
-            console.log('response', res);
+            // console.log('response', res);
             if (res.status === 'success') {
               window.location.href = res.session.url;
             }

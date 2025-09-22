@@ -10,10 +10,10 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class CartService {
   productCount: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   constructor(private http: HttpClient, private cookies: CookieService) {
-    console.log("this.cookies.get('token')", this.cookies.get('token'));
+    // console.log("this.cookies.get('token')", this.cookies.get('token'));
 
     if (this.cookies.get('token') !== null) {
-      console.log("this.cookies.get('token')777", this.cookies.get('token'));
+      // console.log("this.cookies.get('token')777", this.cookies.get('token'));
       this.getCartProduct().subscribe({
         next: (res) => {
           this.productCount.next(res.numOfCartItems);
