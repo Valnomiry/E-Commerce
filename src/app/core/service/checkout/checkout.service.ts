@@ -15,7 +15,7 @@ export class CheckoutService {
     cartId: string | null
   ): Observable<any> {
     return this.http.post(
-      `${environment.baseUrl}orders/checkout-session/${cartId}?url=http://localhost:4200`,
+      `${environment.baseUrl}orders/checkout-session/${cartId}?url=https://e-commerce-3fimstxla-taha-alnomairys-projects.vercel.app`,
       { shippingAddress: shoppingAddress }
     );
   }
